@@ -1,4 +1,6 @@
-console.log(students);
+// console.log(students);
+
+/* Milestone 7 */
 
 let showTableButton = document.querySelector("button");
 showTableButton.addEventListener("click", function () {
@@ -12,6 +14,9 @@ nameInput.addEventListener("input", function (event) {
   let nameDisplayDiv = document.querySelector("#name-display");
   nameDisplayDiv.innerText = inputText;
 });
+
+
+/* Milestone 6 */
 
 function loadTableFromJson() {
   // Create <table> element with styles
@@ -42,6 +47,9 @@ function loadTableFromJson() {
 }
 
 // loadTableFromJson();
+
+
+/* Milestone 5 */
 
 function loadTableRefactored() {
   // Create <table> element with styles
@@ -116,6 +124,9 @@ function getStudentTableRow(id, name) {
   return tRow;
 }
 
+
+/* Milestone 4 */
+
 function loadTable() {
   // Create <table> element with styles
   let table = document.createElement("table");
@@ -173,6 +184,32 @@ function loadTable() {
 //     </table>
 // `;
 
+
+/* Milestone 3 */
+
+// let factsListDiv = document.getElementById("facts-list");
+
+// factsListDiv.innerText =
+//   "<p>Browser creates DOM from HTML content</p><p>Developers can access the DOM using the DOM APIs</p><p>innerHTML property refers to the HTML inside an element</p>";
+
+// factsListDiv.innerHTML =
+//   "<p>Browser creates DOM from HTML content</p><p>Developers can access the DOM using the DOM APIs</p><p>innerHTML property refers to the HTML inside an element</p>";
+
+// // Method 1
+// factsListDiv.innerHTML =
+//   "<p>Browser creates DOM from HTML content</p>" +
+//   "<p>Developers can access the DOM using the DOM APIs</p>" +
+//   "<p>innerHTML property refers to the HTML inside an element</p>";
+
+// // Method 2
+// factsListDiv.innerHTML = `
+//     <p>Browser creates DOM from HTML content</p>
+//     <p>Developers can access the DOM using the DOM APIs</p>
+//     <p>innerHTML property refers to the HTML inside an element</p>
+//     `;
+
+
+// // Wrap the logic from previous task in a function
 // function addNewFact(factText) {
 //   const pElement = document.createElement("p");
 //   pElement.innerText = factText;
@@ -181,43 +218,49 @@ function loadTable() {
 //   divElement.appendChild(pElement);
 // }
 
-// addNewFact("innerHTML property refers to the HTML inside an element");
+// // Execute the function with the 1st fact
+// addNewFact("innerText property refers to the text inside an element");
+// // Execute the function with the 2nd fact
 // addNewFact("append() or appendChild() methods can add a new child element");
 
+// // Add 1st fact
 // const pElement = document.createElement("p");
 // pElement.innerText = "innerHTML property refers to the HTML inside an element";
 
 // const divElement = document.getElementById("facts-list");
 // divElement.appendChild(pElement);
 
-// document.getElementById("facts-list").innerHTML =
-//   "<p>Browser creates DOM from HTML content</p>" +
-//   "<p>Developers can access the DOM using the DOM APIs</p>" +
-//   "<p>innerHTML property refers to the HTML inside an element</p>";
+// // Add 2nd fact
+// const pElement = document.createElement("p");
+// pElement.innerText = "append() or appendChild() methods can add a new child element";
 
-// document.getElementById("facts-list").innerHTML = `
-//     <p>Browser creates DOM from HTML content</p>
-//     <p>Developers can access the DOM using the DOM APIs</p>
-//     <p>innerHTML property refers to the HTML inside an element</p>
-//     `;
+// const divElement = document.getElementById("facts-list");
+// divElement.appendChild(pElement);
 
-// document.getElementById("facts-list").innerText =
-//   "<p>Browser creates DOM from HTML content</p><p>Developers can access the DOM using the DOM APIs</p><p>innerHTML property refers to the HTML inside an element</p>";
 
-// document.getElementById("facts-list").innerHTML =
-//   "<p>Browser creates DOM from HTML content</p><p>Developers can access the DOM using the DOM APIs</p><p>innerHTML property refers to the HTML inside an element</p>";
-// let pElement = document.createElement("p");
-// pElement.innerHTML =
-// function updateInnerText(text) {
-//     document.getElementsByTagName("h1")[0].innerText = text;
-// }
-// updateInnerText("Practicing DOM Manipulation!");
+/* Milestone 2 */
 
-// console.log(document.getElementsByTagName("h1"));
-// console.log(document.getElementsByTagName("h1")[0]);
-// console.log(document.getElementsByTagName("h1")[0].innerText);
-// document.getElementsByTagName("h1")[0].innerText =
-//   "Practicing DOM Manipulation!";
-// console.log(document.getElementsByTagName("h1")[0].innerText);
-// document.body.innerText = "Practicing DOM Manipulation!";
-// console.log("Hello, from JS!")
+// // Create a new element node: <p></p>
+// const pElement = document.createElement("p");
+
+// // Set text inside it - <p>innerText property refers to the text inside an element</p>
+// pElement.innerText = "innerText property refers to the text inside an element";
+
+// // Get the object referring to the div element on the page
+// const divElement = document.getElementById("facts-list");
+
+// // Add the newly created <p> element as child of the div element
+// divElement.appendChild(pElement);
+
+
+/* Milestone 1 */
+
+// let h1Elements = document.getElementsByTagName("h1");
+// console.log(h1Elements);
+
+// let firsth1Element = h1Elements[0];
+// console.log(firsth1Element);
+
+// console.log(firsth1Element.innerText);
+
+// firsth1Element.innerText = "Practicing DOM Manipulation!";
