@@ -92,24 +92,30 @@ function loadTableRowsFromJson(){
         let tRow = createStudentTableRow(currentStudent.id, currentStudent.name);
         tBody.appendChild(tRow);
     }
+
     return tBody;
+    
 }
 
 function loadTableRefactored() 
 {
-    //Create table element
-	let table = getStyledTable();	
+    let showTableButton = document.querySelector('button');
+    showTableButton.addEventListener('click', function(){
+        //Create table element
+        let table = getStyledTable();	
 
-    //create thead and append it to table element
-	let thead = getTableHeader();
-    table.appendChild(thead);
+        //create thead and append it to table element
+        let thead = getTableHeader();
+        table.appendChild(thead);
 
-    //create table body and append it to table element
- 	let tBody = loadTableRowsFromJson();
-	table.appendChild(tBody);
+        //create table body and append it to table element
+        let tBody = loadTableRowsFromJson();
+        table.appendChild(loadTableRowsFromJson()); 
 
-    //table should be appended to document within <div> element
-    document.getElementById("table-div").append(table);
+        //table should be appended to document within <div> element
+        document.getElementById("table-div").append(table);
+    })
+   
 }
 
 loadTableRefactored();
