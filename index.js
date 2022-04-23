@@ -56,6 +56,8 @@
 
 // createTable();
 
+
+
 function getStyledTable() {
 	let table = document.createElement("table");
 	//setting the styles to the table
@@ -83,46 +85,57 @@ function createStudentTableRow(id, name) {
 	return tRow;
 }
 
-function loadTableRowsFromJson(){
-    let tBody = document.createElement("tbody");
+function loadTableRowsFromJson() {
+	let tBody = document.createElement("tbody");
 
-    for(let i=0; i<students.length; i++)
-    {
-        let currentStudent = students[i];
-        let tRow = createStudentTableRow(currentStudent.id, currentStudent.name);
-        tBody.appendChild(tRow);
-    }
+	for (let i = 0; i < students.length; i++) {
+		let currentStudent = students[i];
+		let tRow = createStudentTableRow(
+			currentStudent.id,
+			currentStudent.name
+		);
+		tBody.appendChild(tRow);
+	}
 
-    return tBody;
-    
+	return tBody;
 }
 
-function loadTableRefactored() 
-{
-    let showTableButton = document.querySelector('button');
-    showTableButton.addEventListener('click', function(){
-        //Create table element
-        let table = getStyledTable();	
+let inputName = document.querySelector("input");
+inputName.addEventListener("input", function (event) {
+	let inputText = event.target.value;
 
-        //create thead and append it to table element
-        let thead = getTableHeader();
-        table.appendChild(thead);
+	let nameDisplayDiv = document.querySelector("#name-display");
+	nameDisplayDiv.innerText = inputText;
+});
 
-        //create table body and append it to table element
-        let tBody = loadTableRowsFromJson();
-        table.appendChild(loadTableRowsFromJson()); 
 
-        //table should be appended to document within <div> element
+ function loadTableRefactored() {
+
+    //Create table element
+    let table = getStyledTable();
+
+    //create thead and append it to table element
+    let thead = getTableHeader();
+		table.appendChild(thead);
+
+    //create table body and append it to table element    
+    let tBody = loadTableRowsFromJson();
+		table.appendChild(tBody);
+
+	let showTableButton = document.querySelector("button");
+	showTableButton.addEventListener("click", function () {
+		//table should be appended to document within <div> element
         document.getElementById("table-div").append(table);
-    })
-   
+	}); 
+}
+
+function showHide(){
+
+   let toggle = document.getElementById("table-div");
+   toggle.style.display = (toggle.style.display == "table") ? "none" : "table";
 }
 
 loadTableRefactored();
-
-
-
-
 
 
 
