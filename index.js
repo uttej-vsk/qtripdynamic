@@ -24,36 +24,74 @@
 // <p>Developers can access the DOM using the DOM APIs</p>
 // <p>innerHTML property refers to the HTML inside an element</p>`;
 
+// function createTable(){
+//     //creating table element
+//    let table = document.createElement("table");
+//     //setting the styles to the table
+//    table.setAttribute("border", "solid");
+//    table.setAttribute("width", "600px");
+//     //adding the header to the table
 
-function createTable(){
-    //creating table element
-   let table = document.createElement("table");
-    //setting the styles to the table
-   table.setAttribute("border", "solid");
-   table.setAttribute("width", "600px");
-    //adding the header to the table
+//     let thead = document.createElement("thead");
 
-    let thead = document.createElement("thead");
+//     thead.innerHTML = `<tr><th>Id</th><th>Name</th></tr>`;
+//     table.append(thead);
 
-    thead.innerHTML = `<tr><th>Id</th><th>Name</th></tr>`;
-    table.append(thead);
+//     //creating body elements
 
-    //creating body elements
+//     let tbody = document.createElement("tbody");
 
-    let tbody = document.createElement("tbody");
+//     let trow = document.createElement("tr");
 
-    let trow = document.createElement("tr");
+//     trow.innerHTML = `
+//     <td>1</td>
 
-    trow.innerHTML = `
-    <td>1</td>
+//     <td>Rajesh</td>`;
 
-    <td>Rajesh</td>`;
+//     tbody.appendChild(trow);
+//     table.appendChild(tbody);
 
-    tbody.appendChild(trow);
-    table.appendChild(tbody);
+//     document.getElementById("table-div").append(table);
+// }
+
+// createTable();
+
+function getStyledTable() {
+	let table = document.createElement("table");
+	//setting the styles to the table
+	table.setAttribute("border", "solid");
+	table.setAttribute("width", "600px");
+
+	return table;
+}
+
+function getTableHeader() {
+	let thead = document.createElement("thead");
+	thead.innerHTML = `
+      <tr>
+          <th>Id</th>
+          <th>Name</th>
+      </tr>
+    `;
+	return thead;
+}
+
+function createStudentTableRow(id, name) {
+	let tRow = document.createElement("tr");
+	tRow.innerHTML = `<td> ${id}</td> <td> ${name} </td>`;
+	return tRow;
+}
+
+function loadTableRefactored() {
+	let table = getStyledTable();	
+    
+	let thead = getTableHeader();
+	table.appendChild(thead);
+
+	let tRow = createStudentTableRow(1, "rajesh");
+	thead.appendChild(tRow);
 
     document.getElementById("table-div").append(table);
-}	
+}
 
-createTable();
-
+loadTableRefactored();
