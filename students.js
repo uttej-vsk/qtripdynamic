@@ -19,4 +19,10 @@ const students = [
     id: "5",
     name: "Megha",
   },
+
+  {
+    id: "6",
+    name: "Snehita",
+
+  }
 ];

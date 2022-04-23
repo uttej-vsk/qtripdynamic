@@ -78,20 +78,45 @@ function getTableHeader() {
 
 function createStudentTableRow(id, name) {
 	let tRow = document.createElement("tr");
-	tRow.innerHTML = `<td> ${id}</td> <td> ${name} </td>`;
+	tRow.innerHTML = `<td> ${id}</td>
+                     <td> ${name} </td>`;
 	return tRow;
 }
 
-function loadTableRefactored() {
+function loadTableRowsFromJson(){
+    let tBody = document.createElement("tbody");
+
+    for(let i=0; i<students.length; i++)
+    {
+        let currentStudent = students[i];
+        let tRow = createStudentTableRow(currentStudent.id, currentStudent.name);
+        tBody.appendChild(tRow);
+    }
+    return tBody;
+}
+
+function loadTableRefactored() 
+{
+    //Create table element
 	let table = getStyledTable();	
-    
+
+    //create thead and append it to table element
 	let thead = getTableHeader();
-	table.appendChild(thead);
+    table.appendChild(thead);
 
-	let tRow = createStudentTableRow(1, "rajesh");
-	thead.appendChild(tRow);
+    //create table body and append it to table element
+ 	let tBody = loadTableRowsFromJson();
+	table.appendChild(tBody);
 
+    //table should be appended to document within <div> element
     document.getElementById("table-div").append(table);
 }
 
 loadTableRefactored();
+
+
+
+
+
+
+
