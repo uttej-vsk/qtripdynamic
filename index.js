@@ -25,24 +25,35 @@
 // <p>innerHTML property refers to the HTML inside an element</p>`;
 
 
-	
-document.getElementById("table-div").innerHTML = `
+function createTable(){
+    //creating table element
+   let table = document.createElement("table");
+    //setting the styles to the table
+   table.setAttribute("border", "solid");
+   table.setAttribute("width", "600px");
+    //adding the header to the table
 
-    <table border="1" width="400px"> 
-        <thead> 
-            <tr>
-                <td>Id</td>
+    let thead = document.createElement("thead");
 
-                <td>Name</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
+    thead.innerHTML = `<tr><th>Id</th><th>Name</th></tr>`;
+    table.append(thead);
 
-                <td>Ramesh</td>
-            </tr>
-        </tbody>
-    </table>
+    //creating body elements
 
-`;
+    let tbody = document.createElement("tbody");
+
+    let trow = document.createElement("tr");
+
+    trow.innerHTML = `
+    <td>1</td>
+
+    <td>Rajesh</td>`;
+
+    tbody.appendChild(trow);
+    table.appendChild(tbody);
+
+    document.getElementById("table-div").append(table);
+}	
+
+createTable();
+
